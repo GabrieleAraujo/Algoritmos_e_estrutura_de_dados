@@ -634,7 +634,7 @@ public class Main {
     public static void calcularMediaPares13e73() {
        //Armazenar
         int soma = 0, count = 0;
-        //numeros entre ímpares  de 13 a 73 - soma números pares e divide pela quantidade
+        //numeros entre pares  de 13 a 73 - soma números pares e divide pela quantidade
         for (int i = 13; i <= 73; i++) {
             if ((i & 1) == 0) {
                 soma += i;
