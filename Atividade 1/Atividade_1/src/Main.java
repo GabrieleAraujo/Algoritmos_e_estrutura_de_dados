@@ -15,7 +15,7 @@ public class Main {
                 "\n18 - Idade para Votar e tirar CNH\n19 - Calcular pagamento de produto\n20 - Mostrar Tabuada" +
                 "\n21 - Mostrar números ímpares entre um intervalo\n22 - Atendimento Hospitalar Universitário do Brasil Saúde S.A" +
                 "\n23 - Responder questionário Cinema\n25 - Calcular volume da esfera (por meio do raio)\n26 - Converter F para °C" +
-                "\n27 - Método Fibonacci\n28 - Mostrar todos os números divisíveis por 4");
+                "\n27 - Método Fibonacci\n28 - Mostrar todos os números divisíveis por 4\n29 - Média aritmética dos números pares entre 13 e 73");
 
         System.out.println("Digite uma opção: ");
 
@@ -101,6 +101,9 @@ public class Main {
                 break;
             case 28:
                 mostrarDivisiveisPorQuatro();
+                break;
+            case 29:
+                calcularMediaPares13e73();
                 break;
             default:
                 System.out.println("Opção inválida!");
@@ -631,12 +634,14 @@ public class Main {
     public static void calcularMediaPares13e73() {
        //Armazenar
         int soma = 0, count = 0;
+        //numeros entre ímpares  de 13 a 73 - soma números pares e divide pela quantidade
         for (int i = 13; i <= 73; i++) {
-            if (i % 2 == 0) {
+            if ((i & 1) == 0) {
                 soma += i;
                 count++;
             }
         }
+        // Calcular
         double media = (double) soma / count;
         System.out.println("Média aritmética dos números pares entre 13 e 73: " + media);
     }
