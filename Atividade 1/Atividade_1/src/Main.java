@@ -7,12 +7,15 @@ public class Main {
         Scanner opcao = new Scanner(System.in);
 
         System.out.println("Escolha uma dessas operações:\n1 - Calcular Média ponderada\n2 - Desconto no Preço de Produto" +
-                "\n3 - Calcular Salário Final\n4 - Calcular Novo Peso\n5 - Calcular Área do Trapézio" +
+                "\n3 - Calcular Salário Final com Comissão\n4 - Calcular Novo Peso\n5 - Calcular Área do Trapézio" +
                 "\n6 - Calcular Área do Losango\n7 - Calcular Idade\n8 - Calcular Esfera\n9 - Calcular Diagonais do Polígono" +
                 "\n10 - Converter Moedas\n11 - Calcular Produto de Dois Números\n12 - Calcular Média de Três Números" +
                 "\n13 - Calcular Raízes de Equação do 2º Grau\n14 - Calcular Diferença entre Dois Números" +
                 "\n15 - Determinar Maior e Menor Número\n16 - Calcular distância entre Pontos P(X1,Y1) e Q(X2,Y2)\n17 - Calcular IMC" +
-                "\n18 - Idade para Votar e tirar CNH\n19 - Calcular pagamento de produto\n20 - Mostrar Tabuada");
+                "\n18 - Idade para Votar e tirar CNH\n19 - Calcular pagamento de produto\n20 - Mostrar Tabuada" +
+                "\n21 - Mostrar números ímpares entre um intervalo\n22 - Atendimento Hospitalar Universitário do Brasil Saúde S.A" +
+                "\n23 - Responder questionário Cinema\n25 - Calcular volume da esfera (por meio do raio)\n26 - Converter F para °C" +
+                "\n27 - Método Fibonacci\n28 - Mostrar todos os números divisíveis por 4");
 
         System.out.println("Digite uma opção: ");
 
@@ -25,7 +28,7 @@ public class Main {
                 calcularPrecoProduto();
                 break;
             case 3:
-                calcularSalarioFinal();
+                calcularComissao();
                 break;
             case 4:
                 calcularNovoPeso();
@@ -78,6 +81,27 @@ public class Main {
             case 20:
                 mostrarTabuada();
                 break;
+            case 21:
+                mostarNumerosImpares();
+                break;
+            case 22:
+                atendimentoHospitalar();
+                break;
+            case 23:
+                feedbackCinema();
+                break;
+            case 25:
+                calcularVolumeEsfera();
+                break;
+            case 26:
+                converterFahrenheitParaCelsius();
+                break;
+            case 27:
+                calcularFibonacci();
+                break;
+            case 28:
+                mostrarDivisiveisPorQuatro();
+                break;
             default:
                 System.out.println("Opção inválida!");
         }
@@ -91,7 +115,7 @@ public class Main {
         nota1 = notas.nextFloat();
         System.out.println("Digite a nota 2: ");
         nota2 = notas.nextFloat();
-        mediaponderada = (nota1 * 2 + nota2 * 3) / 10;
+        mediaponderada = ((nota1 * 2) + (nota2 * 3)) / 5;
         System.out.println("Média ponderada: " + mediaponderada);
     }
 
@@ -106,15 +130,15 @@ public class Main {
     }
 
     // Exercício 3
-    public static void calcularSalarioFinal() {
+    public static void calcularComissao() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o salário fixo: ");
         double salarioFixo = sc.nextDouble();
         System.out.println("Digite o valor das vendas: ");
         double vendas = sc.nextDouble();
         double comissao = vendas * 0.04;
-        double salarioFinal = salarioFixo + comissao;
         System.out.println("Comissão: R$" + comissao);
+        double salarioFinal = salarioFixo + comissao;
         System.out.println("Salário Final: R$" + salarioFinal);
     }
 
@@ -124,30 +148,30 @@ public class Main {
         System.out.println("Digite o peso: ");
         double peso = sc.nextDouble();
         double novoPesoEngordar = peso * 1.15;
+        System.out.println("Novo peso se engordar 15%: " + novoPesoEngordar + " kg");
         double novoPesoEmagrecer = peso * 0.80;
-        System.out.println("Novo peso se engordar: " + novoPesoEngordar + " kg");
-        System.out.println("Novo peso se emagrecer: " + novoPesoEmagrecer + " kg");
+        System.out.println("Novo peso se emagrecer 20%: " + novoPesoEmagrecer + " kg");
     }
 
-    // Exercício 5
+    // Exercício 5 - Fórmula: A = ((B+b)*h)/2
     public static void calcularAreaTrapezio() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite o valor da base maior: ");
+        System.out.println("Digite o valor da base maior (B): ");
         double baseMaior = sc.nextDouble();
-        System.out.println("Digite o valor da base menor: ");
+        System.out.println("Digite o valor da base menor (b): ");
         double baseMenor = sc.nextDouble();
-        System.out.println("Digite o valor da altura: ");
+        System.out.println("Digite o valor da altura (h): ");
         double altura = sc.nextDouble();
         double area = ((baseMaior + baseMenor) * altura) / 2;
         System.out.println("Área do trapézio: " + area);
     }
 
-    // Exercício 6
+    // Exercício 6 - Fórmula: A = (D*d)/2
     public static void calcularAreaLosango() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite o valor da diagonal maior: ");
+        System.out.println("Digite o valor da diagonal maior (D): ");
         double diagonalMaior = sc.nextDouble();
-        System.out.println("Digite o valor da diagonal menor: ");
+        System.out.println("Digite o valor da diagonal menor (d): ");
         double diagonalMenor = sc.nextDouble();
         double area = (diagonalMaior * diagonalMenor) / 2;
         System.out.println("Área do losango: " + area);
@@ -161,12 +185,12 @@ public class Main {
         System.out.println("Digite o ano atual: ");
         int anoAtual = sc.nextInt();
         int idadeAnos = anoAtual - anoNascimento;
-        int idadeMeses = idadeAnos * 12;
-        int idadeDias = idadeAnos * 365;
-        int idadeSemanas = idadeDias / 7;
         System.out.println("Idade em anos: " + idadeAnos);
+        int idadeMeses = idadeAnos * 12; //meses
         System.out.println("Idade em meses: " + idadeMeses);
+        int idadeDias = idadeAnos * 365; //dias
         System.out.println("Idade em dias: " + idadeDias);
+        int idadeSemanas = idadeAnos * 52; //idade de dias/semanas
         System.out.println("Idade em semanas: " + idadeSemanas);
     }
 
@@ -175,15 +199,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o raio da esfera: ");
         double raio = sc.nextDouble();
-        double comprimento = 2 * Math.PI * raio;
-        double area = 4 * Math.PI * Math.pow(raio, 2);
-        double volume = (4.0 / 3) * Math.PI * Math.pow(raio, 3);
+        double comprimento = 2 * Math.PI * raio; //Comprimento da esfera = 2*pi*raio
         System.out.println("Comprimento da esfera: " + comprimento);
+        double area = 4 * Math.PI * Math.pow(raio, 2); //área da esfera = 4*pi*(raio^2)
         System.out.println("Área da esfera: " + area);
+        double volume = (4.0 / 3) * Math.PI * Math.pow(raio, 3); //volume = 4*pi*(r^3/3)
         System.out.println("Volume da esfera: " + volume);
     }
 
-    // Exercício 9
+    // Exercício 9 - Fórmula: d = (n(n-3))/2
     public static void calcularDiagonaisPoligono() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o número de lados do polígono convexo: ");
@@ -197,13 +221,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o valor em reais que deseja converter: ");
         double valorEmReais = sc.nextDouble();
-        double dolares = valorEmReais / 5.0;
-        double marcoAlemao = valorEmReais / 7.0;
-        double euros = valorEmReais / 6.0;
-        double libras = valorEmReais / 7.5;
+        double dolares = valorEmReais * 0.1893;
         System.out.println("Valor em dólares: $" + dolares);
-        System.out.println("Valor em marcos alemães: " + marcoAlemao + " DM");
-        System.out.println("Valor em euros: " + euros + " €");
+        double marcoAlemao = valorEmReais * 2.79195;
+        System.out.println("Valor em marcos alemães: " + marcoAlemao + " DEM");
+        double euros = valorEmReais * 0.178;
+        System.out.println("Valor em euros: " + euros + " EUR");
+        double libras = valorEmReais * 0.1521;
         System.out.println("Valor em libras esterlinas: £" + libras);
     }
 
@@ -231,7 +255,7 @@ public class Main {
         System.out.println("A média dos números é: " + media);
     }
 
-    // Exercício 13
+    // Exercício 13 - Fórmula: a*x^2 + b*x + c = 0 / delta = b^2 -4*a*c
     public static void calcularEquacaoSegundoGrau() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o valor de a: ");
@@ -241,7 +265,7 @@ public class Main {
         System.out.println("Digite o valor de c: ");
         double c = sc.nextDouble();
         double delta = b * b - 4 * a * c;
-        if (delta >= 0) {
+        if (delta >= 0) { // raizes: x = (-b +- raiz(delta))/(2*a)
             double raiz1 = (-b + Math.sqrt(delta)) / (2 * a);
             double raiz2 = (-b - Math.sqrt(delta)) / (2 * a);
             System.out.println("As raízes da equação são: " + raiz1 + " e " + raiz2);
@@ -260,7 +284,8 @@ public class Main {
         double diferenca;
         if (num1 > num2) {
             diferenca = num1 - num2;
-        } else {
+        }
+        else {
             diferenca = num2 - num1;
         }
         System.out.println("A diferença entre os números é: " + diferenca);
@@ -276,8 +301,8 @@ public class Main {
         System.out.println("Digite o terceiro número: ");
         int num3 = sc.nextInt();
         int maior = Math.max(num1, Math.max(num2, num3));
-        int menor = Math.min(num1, Math.min(num2, num3));
         System.out.println("O maior número é: " + maior);
+        int menor = Math.min(num1, Math.min(num2, num3));
         System.out.println("O menor número é: " + menor);
     }
 
@@ -327,11 +352,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o ano de nascimento: ");
         int anoNascimento = sc.nextInt();
-
         // Calculando a idade
         int anoAtual = Calendar.getInstance().get(Calendar.YEAR);
         int idade = anoAtual - anoNascimento;
-
         System.out.println("Sua idade é: " + idade + " anos.");
 
         // Verificando se a pessoa tem idade para votar e obter CNH
@@ -340,7 +363,6 @@ public class Main {
         } else {
             System.out.println("Você ainda não tem idade para votar.");
         }
-
         if (idade >= 18) {
             System.out.println("Você tem idade para obter a Carteira de Habilitação (CNH).");
         } else {
@@ -353,16 +375,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o preço normal de etiqueta do produto: ");
         double precoEtiqueta = sc.nextDouble();
-
         System.out.println("Escolha a condição de pagamento:");
         System.out.println("1 - À vista em dinheiro ou cheque (recebe 20% de desconto)");
         System.out.println("2 - À vista no cartão de crédito (recebe 10% de desconto)");
         System.out.println("3 - Em duas vezes (preço normal da etiqueta sem juros)");
         System.out.println("4 - Em três vezes (preço normal de etiqueta mais juros de 5%)");
         int escolha = sc.nextInt();
-
         double valorAPagar;
-
         switch (escolha) {
             case 1:
                 valorAPagar = precoEtiqueta * 0.8; // Desconto de 20%
@@ -382,20 +401,244 @@ public class Main {
                 System.out.println("Opção inválida!");
                 return;
         }
-
         System.out.println("O valor a ser pago é: R$" + valorAPagar);
     }
 
     // Exercício 20
     public static void mostrarTabuada() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("De qual número você quer a Tabuada? ");
+        System.out.println("De qual número você quer ver a Tabuada? ");
         int num = sc.nextInt();
-
         System.out.println("Tabuada do " + num + ":");
         for (int i = 0; i <= 10; i++) {
             System.out.println(num + " x " + i + " = " + (num * i));
         }
+    }
+
+    // Exercício 21
+    public static void mostarNumerosImpares() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o primeiro número do intervalo:");
+        int Num1 = scanner.nextInt();
+        System.out.println("Digite o segundo número do intervalo:");
+        int Num2 = scanner.nextInt();
+
+        // Garantindo que o 1° número seja menor que o 2°
+        if (Num1 > Num2) {
+            int temp = Num1;
+            Num1 = Num2;
+            Num2 = temp;
+        }
+        System.out.println("Números ímpares no intervalo de " + Num1 + " a " + Num2 + ":");
+        for (int i = Num1; i <= Num2; i++) {
+            if ((i & 1) == 1) { // Se o número for ímpar (compara cada bit individualmente e
+                // tem um bit definido apenas se ambos os números tiverem o bit iguais)
+                System.out.print(i + ", ");
+            }
+        }
+    }
+
+    // Exercício 22
+    public static void atendimentoHospitalar() {
+        //ARMAZENAR VALORES DO LOOP
+        // Contagem - Quantidades crianças, adolescentes e adultas que foram atendidas
+        int criancas = 0;
+        int adolescentes = 0;
+        int adultos = 0;
+
+        // Soma -  idade das crianças ; adultos ; sexo
+        int somaIdadeCriancas = 0;
+        int somaIdadeAdultos = 0;
+        int somaSexoFeminino = 0;
+        int somaSexoMasculino = 0;
+
+        // Entrada de dados
+        Scanner entrada = new Scanner(System.in);
+        // Loop principal para atendimento dos pacientes
+        do {
+            // Nome do paciente
+            System.out.print("Informe o nome do paciente (ou 0 para finalizar): ");
+            String nome = entrada.nextLine();
+            // Código de fim de programa
+            if (nome.equals("0")) {
+                break;
+            }
+            // Idade do paciente
+            System.out.print("Informe a idade do paciente: ");
+            int idade = entrada.nextInt();
+            entrada.nextLine();
+            // Sexo do paciente
+            System.out.print("Informe o sexo do paciente (M ou F): ");
+            String sexoPaciente = entrada.nextLine();
+
+            // Contagem por sexo
+            if (sexoPaciente.equals("M")) {
+                somaSexoMasculino++;
+            } else if (sexoPaciente.equals("F")) {
+                somaSexoFeminino++;
+            }
+
+            // Classificação por idade e sexo
+            if (idade <= 12) {
+                criancas++;
+                somaIdadeCriancas += idade;
+            } else if (idade <= 18) {
+                adolescentes++;
+            } else {
+                adultos++;
+                somaIdadeAdultos += idade;
+            }
+            System.out.println("Atendimento de " + nome + " concluído!");
+        } while (true);
+        System.out.println("\n\n---- Resultado de pacientes atendidos ----");
+        System.out.println("Crianças: " + criancas);
+        System.out.println("Adolescentes: " + adolescentes);
+        System.out.println("Adultos: " + adultos);
+
+        // médias de idade
+        float mediaIdadeCriancas = (float) somaIdadeCriancas / criancas;
+        System.out.println("Média de idade das crianças: " + String.format("%.2f", mediaIdadeCriancas));
+        float mediaIdadeAdultos = (float) somaIdadeAdultos / adultos;
+        System.out.println("Média de idade dos adultos: " + String.format("%.2f", mediaIdadeAdultos));
+
+        System.out.println("Total de pacientes do sexo feminino: " +  somaSexoFeminino);
+        System.out.println("Total de pacientes do sexo masculino: " + somaSexoMasculino);
+    }
+
+    // Exercício 23
+    public static void feedbackCinema(){
+        // Armazenar
+        int quantidadeOtimo = 0;
+        int quantidadeBom = 0;
+        int quantidadeRegular = 0;
+        int quantidadeRuim = 0;
+        int quantidadePessimo = 0;
+
+        int somaIdadeRuim = 0;
+        int maiorIdadePessimo = 0;
+        int maiorIdadeOtimo = 0;
+        int maiorIdadeRuim = 0;
+
+        // Entrada de dados
+        Scanner scanner = new Scanner(System.in);
+
+        // Loop - Número de espectadores tá 3 para testes (original é 30)
+        for (int i = 0; i < 3; i++) {
+            // idade
+            System.out.print("Informe a idade do espectador " + (i + 1) + ": ");
+            int idade = scanner.nextInt();
+
+            // solicitar a opinião do espectador
+            System.out.print("Informe a opinião do espectador " + (i + 1) + " (A, B, C, D ou E): ");
+            char opiniao = scanner.next().charAt(0);
+            scanner.nextLine();
+
+            // atualizar
+            switch (opiniao) {
+                case 'A':
+                    quantidadeOtimo++;
+                    if (idade > maiorIdadeOtimo) {
+                        maiorIdadeOtimo = idade;
+                    }
+                    break;
+                case 'B':
+                    quantidadeBom++;
+                    break;
+                case 'C':
+                    quantidadeRegular++;
+                    break;
+                case 'D':
+                    quantidadeRuim++;
+                    somaIdadeRuim += idade;
+                    if (idade > maiorIdadeRuim) {
+                        maiorIdadeRuim = idade;
+                    }
+                    break;
+                case 'E':
+                    quantidadePessimo++;
+                    if (idade > maiorIdadePessimo) {
+                        maiorIdadePessimo = idade;
+                    }
+                    break;
+                default:
+                    System.out.println("Opinião inválida. Por favor, responda com A, B, C, D ou E.");
+                    i--;
+                    break;
+            }
+        }
+        System.out.println("\n\n---- Resultado do Questionário ----");
+        System.out.println("Quantidade de respostas Ótima: " + quantidadeOtimo);
+
+        // Calcular
+        float diferencaPercentualBomRegular = ((float) (quantidadeBom - quantidadeRegular) / quantidadeBom) * 100;
+        System.out.println("Diferença percentual entre respostas Bom e Regular: " + String.format("%.2f", diferencaPercentualBomRegular) + "%");
+
+        float porcentagemPessimo = ((float) quantidadePessimo / 3) * 100;
+        System.out.println("Porcentagem de respostas Péssimo: " + String.format("%.2f", porcentagemPessimo));
+
+        int diferencaMaiorIdade = maiorIdadeOtimo - maiorIdadeRuim;
+        System.out.println("Diferença entre a maior idade que respondeu Ótimo e a maior idade que respondeu Ruim: " + diferencaMaiorIdade);
+    }
+
+    // Exercício 25 - Fórmula: V = 4/3 π r³
+    public static void calcularVolumeEsfera() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o raio (r) da esfera: ");
+        double raio = sc.nextDouble();
+        double volume = (4.0 / 3.0) * Math.PI * Math.pow(raio, 3);
+        System.out.println("Volume da esfera: " + volume);
+    }
+
+    // Exercício 26 - Fórmula: (F - 32) * (5/9) = C
+    public static void converterFahrenheitParaCelsius() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite a temperatura em Fahrenheit (F): ");
+        double fahrenheit = sc.nextDouble();
+        double celsius = (fahrenheit - 32) * (5/9);
+        System.out.println("Temperatura em °C: " + celsius);
+    }
+
+    // Exercício 27
+    public static void calcularFibonacci() {
+        int num1 = 0, num2 = 1;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o número (termo) para imprimir a série de FIBONACCI:");
+        int n = sc.nextInt();
+        System.out.print(num1 + " ");
+        System.out.print(num2 + " ");
+
+        for (int i = 2; i < n; i++) { // a sequencia soma os dois anteriores e será próx num
+            int temp = num1 + num2;
+            System.out.print(temp + " ");
+            num1 = num2;
+            num2 = temp;
+        }
+    }
+
+    // Exercício 28
+    public static void mostrarDivisiveisPorQuatro() {
+        System.out.println("Números divisíveis por 4 menores que 200:");
+        for (int i = 1; i < 200; i++) {
+            if ((i & 3) == 0) { // o mesmo do exercício 21 (verifica se i é divisível por 4), outro método: (i % 4 == 0)
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // Exercício 29
+    public static void calcularMediaPares13e73() {
+       //Armazenar
+        int soma = 0, count = 0;
+        for (int i = 13; i <= 73; i++) {
+            if (i % 2 == 0) {
+                soma += i;
+                count++;
+            }
+        }
+        double media = (double) soma / count;
+        System.out.println("Média aritmética dos números pares entre 13 e 73: " + media);
     }
 
 }
