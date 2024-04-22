@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner opcao = new Scanner(System.in);
 
         System.out.println("Escolha uma dessas operações:\n1 - Calcular Média ponderada\n2 - Desconto no Preço de Produto" +
                 "\n3 - Calcular Salário Final com Comissão\n4 - Calcular Novo Peso\n5 - Calcular Área do Trapézio" +
@@ -22,7 +22,7 @@ public class Main {
         int op;
         do {
             System.out.print("Digite uma opção (0 para sair): ");
-            op = scanner.nextInt();
+            op = opcao.nextInt();
             switch (op) {
                 case 0:
                     System.out.println("Saindo do sistema...");
@@ -123,7 +123,7 @@ public class Main {
             }
         } while (op != 0);
 
-        scanner.close();
+        opcao.close();
     }
 
 

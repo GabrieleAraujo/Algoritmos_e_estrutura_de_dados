@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,7 +10,6 @@ public class Main {
                 "\n4 - Subtrair vetores\n5 - Quadrado de Elementos\n6 - Contar Negativos" +
                 "\n7 - Substituir Cinco por Um\n8 - Ordenar Elementos\n9 - Produto Escalar" +
                 "\n10 - Mostrar Números Maiores que Vinte\n11 - Mostrar Números Primos");
-
         int op;
         do {
             System.out.print("Digite uma opção (0 para sair): ");
@@ -27,12 +27,35 @@ public class Main {
                 case 3:
                     ler5ElementosFatorial();
                     break;
+                case 4:
+                    lerVetoresSubtrair();
+                    break;
+                case 5:
+                    quadradoDeElementos();
+                    break;
+                case 6:
+                    contarNegativos();
+                    break;
+                case 7:
+                    substituirCincoPorUm();
+                    break;
+                case 8:
+                    ordenarElementos();
+                    break;
+                case 9:
+                    produtoEscalar();
+                    break;
+                case 10:
+                    mostrarNumerosMaioresQueVinte();
+                    break;
+                case 11:
+                    mostrarNumerosPrimos();
+                    break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
                     break;
             }
         } while (op != 0);
-
         opcao.close();
     }
 
@@ -229,12 +252,11 @@ public class Main {
             }
         }
     }
-
     private static boolean isPrime(int num) {
         if (num <= 1) {
             return false;
         }
-        for (int i = 2; i <= Math.sqrt(num); i++) {
+        for (int i = 2; i <= num / 2; i++) {
             if (num % i == 0) {
                 return false;
             }
