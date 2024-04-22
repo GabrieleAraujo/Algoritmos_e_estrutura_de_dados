@@ -78,47 +78,47 @@ public class Main {
     // Exercício 2
     public static void ler5ElementosMatriz() {
         Scanner as = new Scanner(System.in);
-        int[] matrizA = new int[5];
-        int[] matrizB = new int[matrizA.length];
+        int[] A = new int[5];
+        int[] B = new int[A.length];
         int i, j;
         // Matriz A
-        for (i = 0; i < matrizA.length; i++) {
+        for (i = 0; i < A.length; i++) {
             j = i + 1;
             System.out.println("Entre com o elemento " + j + " da matriz A:");
-            matrizA[i] = as.nextInt();
-            matrizB[i] = matrizA[i] * 3;
+            A[i] = as.nextInt();
+            B[i] = A[i] * 3;
         }
-        for (i = 0; i < matrizA.length; i++) {
-            System.out.println("Elementos da Matriz A:" + matrizA[i]);
-            System.out.println("Elementos da Matriz B:" + matrizB[i]);
+        for (i = 0; i < A.length; i++) {
+            System.out.println("Elementos da Matriz A:" + A[i]);
+            System.out.println("Elementos da Matriz B:" + B[i]);
         }
     }
 
     // Exercício 3
     public static void ler5ElementosFatorial() {
         Scanner as = new Scanner(System.in);
-        int[] matrizA = new int[5];
-        int[] matrizB = new int[5];
+        int[] A = new int[5];
+        int[] B = new int[5];
         int i, j;
 
         // Entrada de elementos
         for (i = 0; i < 5; i++) {
             j = i + 1;
             System.out.println("Entre com o elemento " + j + " da matriz A:");
-            matrizA[i] = as.nextInt();
-            int elementoA = matrizA[i];
+            A[i] = as.nextInt();
+            int elementoA = A[i];
             //System.out.println("Elementosss:" + elementoA);
             int fatorial = 1;
             for (int l = 1; l <= elementoA; l++) { //calculando fatorial
                 fatorial *= l;
             }
-            matrizB[i] = fatorial;
+            B[i] = fatorial;
         }
         // Exibindo elementos
         for (i = 0; i < 5; i++) {
-            //System.out.println("Elementos da Matriz A:" + matrizA[i]);
+            //System.out.println("Elementos da Matriz A:" + A[i]);
             j = i + 1;
-            System.out.println("Elementos " + j + " da Matriz B:" + matrizB[i]);
+            System.out.println("Elementos " + j + " da Matriz B:" + B[i]);
         }
     }
 
@@ -129,16 +129,22 @@ public class Main {
         int[] B = new int[5];
         int[] C = new int[5];
 
+        int i, j;
+
         System.out.println("Digite 5 elementos para o vetor A:");
-        for (int i = 0; i < 5; i++) {
+        for (i = 0; i < 5; i++) {
             A[i] = scanner.nextInt();
         }
         System.out.println("Digite 5 elementos para o vetor B:");
-        for (int i = 0; i < 5; i++) {
+        for (i = 0; i < 5; i++) {
             B[i] = scanner.nextInt();
             C[i] = A[i] - B[i];
         }
-        System.out.println("Vetor resultante C (A-B): " + Arrays.toString(C));
+        // Exibindo elementos
+        for (i = 0; i < 5; i++) {
+            j = i + 1;
+            System.out.println("Elementos " + j + " da Matriz C:" + C[i]);
+        }
     }
 
     // Exercício 5
@@ -147,12 +153,17 @@ public class Main {
         int[] A = new int[5];
         int[] B = new int[5];
 
+        int i,j;
         System.out.println("Digite 5 elementos para o vetor A:");
-        for (int i = 0; i < 5; i++) {
+        for (i = 0; i < 5; i++) {
             A[i] = scanner.nextInt();
             B[i] = A[i] * A[i];
         }
-        System.out.println("Vetor B (quadrado de A): " + Arrays.toString(B));
+        // Exibindo elementos
+        for (i = 0; i < 5; i++) {
+            j = i + 1;
+            System.out.println("Elementos " + j + " da Matriz B:" + B[i]);
+        }
     }
 
     // Exercício 6
@@ -160,9 +171,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int[] elementos = new int[6];
         int countNegativos = 0;
+        int i;
 
         System.out.println("Digite 6 elementos para o vetor:");
-        for (int i = 0; i < 6; i++) {
+        for (i = 0; i < 6; i++) {
             elementos[i] = scanner.nextInt();
             if (elementos[i] < 0) {
                 countNegativos++;
@@ -175,31 +187,45 @@ public class Main {
     public static void substituirCincoPorUm() {
         Scanner scanner = new Scanner(System.in);
         int[] numeros = new int[10];
-
+        int i;
         System.out.println("Digite 10 números para o vetor:");
-        for (int i = 0; i < 10; i++) {
+        for (i = 0; i < 10; i++) {
             numeros[i] = scanner.nextInt();
         }
-        System.out.println("Vetor original: " + Arrays.toString(numeros));
-        for (int i = 0; i < 10; i++) {
+        System.out.println("Vetor original:");
+        for (int num : numeros) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+        for (i = 0; i < 10; i++) {
             if (numeros[i] == 5) {
                 numeros[i] = 1;
             }
         }
-        System.out.println("Vetor modificado (5 substituídos por 1): " + Arrays.toString(numeros));
+        System.out.println("Vetor modificado (5 substituídos por 1):");
+        for (int num : numeros) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
     }
 
     // Exercício 8
     public static void ordenarElementos() {
         Scanner scanner = new Scanner(System.in);
         int[] elementos = new int[5];
+        int i;
 
         System.out.println("Digite 5 elementos para o vetor:");
-        for (int i = 0; i < 5; i++) {
+        for (i = 0; i < 5; i++) {
             elementos[i] = scanner.nextInt();
         }
         Arrays.sort(elementos);
-        System.out.println("Elementos ordenados: " + Arrays.toString(elementos));
+        System.out.println("Elementos ordenados: ");
+        for (int elemento : elementos) {
+            System.out.print(elemento + " ");
+        }
+        System.out.println();
+        scanner.close();
     }
 
     // Exercício 9
@@ -208,13 +234,13 @@ public class Main {
         int[] u = new int[10];
         int[] v = new int[10];
         int produto = 0;
-
+        int i;
         System.out.println("Digite 10 elementos para o vetor u:");
-        for (int i = 0; i < 10; i++) {
+        for (i = 0; i < 10; i++) {
             u[i] = scanner.nextInt();
         }
         System.out.println("Digite 10 elementos para o vetor v:");
-        for (int i = 0; i < 10; i++) {
+        for (i = 0; i < 10; i++) {
             v[i] = scanner.nextInt();
             produto += u[i] * v[i];
         }
