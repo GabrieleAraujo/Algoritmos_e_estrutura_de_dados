@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner opcao = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Escolha uma dessas operações:\n1 - Calcular Média ponderada\n2 - Desconto no Preço de Produto" +
                 "\n3 - Calcular Salário Final com Comissão\n4 - Calcular Novo Peso\n5 - Calcular Área do Trapézio" +
@@ -14,101 +14,118 @@ public class Main {
                 "\n15 - Determinar Maior e Menor Número\n16 - Calcular distância entre Pontos P(X1,Y1) e Q(X2,Y2)\n17 - Calcular IMC" +
                 "\n18 - Idade para Votar e tirar CNH\n19 - Calcular pagamento de produto\n20 - Mostrar Tabuada" +
                 "\n21 - Mostrar números ímpares entre um intervalo\n22 - Atendimento Hospitalar Universitário do Brasil Saúde S.A" +
-                "\n23 - Responder questionário Cinema\n25 - Calcular volume da esfera (por meio do raio)\n26 - Converter F para °C" +
-                "\n27 - Método Fibonacci\n28 - Mostrar todos os números divisíveis por 4\n29 - Média aritmética dos números pares entre 13 e 73");
+                "\n23 - Responder questionário Cinema\n24 - Folha de Pagamento\n25 - Calcular volume da esfera (por meio do raio)\n26 - Converter F para °C" +
+                "\n27 - Método Fibonacci\n28 - Mostrar todos os números divisíveis por 4" +
+                "\n29 - Média aritmética dos números pares entre 13 e 73\n31 - Levantamento de candidatos para preenchimento de vagas" +
+                "\n0 - Sair");
 
-        System.out.println("Digite uma opção: ");
+        int op;
+        do {
+            System.out.print("Digite uma opção (0 para sair): ");
+            op = scanner.nextInt();
+            switch (op) {
+                case 0:
+                    System.out.println("Saindo do sistema...");
+                    break;
+                case 1:
+                    calcularMediaPonderada();
+                    break;
+                case 2:
+                    calcularPrecoProduto();
+                    break;
+                case 3:
+                    calcularComissao();
+                    break;
+                case 4:
+                    calcularNovoPeso();
+                    break;
+                case 5:
+                    calcularAreaTrapezio();
+                    break;
+                case 6:
+                    calcularAreaLosango();
+                    break;
+                case 7:
+                    calcularIdade();
+                    break;
+                case 8:
+                    calcularEsfera();
+                    break;
+                case 9:
+                    calcularDiagonaisPoligono();
+                    break;
+                case 10:
+                    converterMoedas();
+                    break;
+                case 11:
+                    calcularProduto();
+                    break;
+                case 12:
+                    calcularMediaTresNumeros();
+                    break;
+                case 13:
+                    calcularEquacaoSegundoGrau();
+                    break;
+                case 14:
+                    calcularDiferenca();
+                    break;
+                case 15:
+                    determinarMaiorMenor();
+                    break;
+                case 16:
+                    calcularDistanciaEntrePontos();
+                    break;
+                case 17:
+                    calcularIMC();
+                    break;
+                case 18:
+                    verificarIdadeParaVotarECNH();
+                    break;
+                case 19:
+                    calcularValorAPagar();
+                    break;
+                case 20:
+                    mostrarTabuada();
+                    break;
+                case 21:
+                    mostarNumerosImpares();
+                    break;
+                case 22:
+                    atendimentoHospitalar();
+                    break;
+                case 23:
+                    feedbackCinema();
+                    break;
+                case 24:
+                    salarioEmpresa();
+                    break;
+                case 25:
+                    calcularVolumeEsfera();
+                    break;
+                case 26:
+                    converterFahrenheitParaCelsius();
+                    break;
+                case 27:
+                    calcularFibonacci();
+                    break;
+                case 28:
+                    mostrarDivisiveisPorQuatro();
+                    break;
+                case 29:
+                    calcularMediaPares13e73();
+                    break;
+                case 31:
+                    preenchimentoVagas();
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    break;
+            }
+        } while (op != 0);
 
-        int op = opcao.nextInt();
-        switch (op) {
-            case 1:
-                calcularMediaPonderada();
-                break;
-            case 2:
-                calcularPrecoProduto();
-                break;
-            case 3:
-                calcularComissao();
-                break;
-            case 4:
-                calcularNovoPeso();
-                break;
-            case 5:
-                calcularAreaTrapezio();
-                break;
-            case 6:
-                calcularAreaLosango();
-                break;
-            case 7:
-                calcularIdade();
-                break;
-            case 8:
-                calcularEsfera();
-                break;
-            case 9:
-                calcularDiagonaisPoligono();
-                break;
-            case 10:
-                converterMoedas();
-                break;
-            case 11:
-                calcularProduto();
-                break;
-            case 12:
-                calcularMediaTresNumeros();
-                break;
-            case 13:
-                calcularEquacaoSegundoGrau();
-                break;
-            case 14:
-                calcularDiferenca();
-                break;
-            case 15:
-                determinarMaiorMenor();
-                break;
-            case 16:
-                calcularDistanciaEntrePontos();
-                break;
-            case 17:
-                calcularIMC();
-                break;
-            case 18:
-                verificarIdadeParaVotarECNH();
-                break;
-            case 19:
-                calcularValorAPagar();
-                break;
-            case 20:
-                mostrarTabuada();
-                break;
-            case 21:
-                mostarNumerosImpares();
-                break;
-            case 22:
-                atendimentoHospitalar();
-                break;
-            case 23:
-                feedbackCinema();
-                break;
-            case 25:
-                calcularVolumeEsfera();
-                break;
-            case 26:
-                converterFahrenheitParaCelsius();
-                break;
-            case 27:
-                calcularFibonacci();
-                break;
-            case 28:
-                mostrarDivisiveisPorQuatro();
-                break;
-            case 29:
-                calcularMediaPares13e73();
-                break;
-            default:
-                System.out.println("Opção inválida!");
-        }
+        scanner.close();
     }
+
 
     // Exercício 1
     public static void calcularMediaPonderada() {
@@ -511,57 +528,37 @@ public class Main {
     // Exercício 23
     public static void feedbackCinema(){
         // Armazenar
-        int quantidadeOtimo = 0;
-        int quantidadeBom = 0;
-        int quantidadeRegular = 0;
-        int quantidadeRuim = 0;
-        int quantidadePessimo = 0;
-
-        int somaIdadeRuim = 0;
-        int maiorIdadePessimo = 0;
-        int maiorIdadeOtimo = 0;
-        int maiorIdadeRuim = 0;
-
-        // Entrada de dados
+        int quantidadeOtimo = 0, quantidadeBom = 0, quantidadeRegular = 0, quantidadeRuim = 0, quantidadePessimo = 0;
+        int maiorIdadePessimo = 0, maiorIdadeOtimo = 0, maiorIdadeRuim = 0;
         Scanner scanner = new Scanner(System.in);
+        int totalEspectadores = 5;  // Total de espectadores
 
-        // Loop - Número de espectadores tá 3 para testes (original é 30)
-        for (int i = 0; i < 3; i++) {
-            // idade
+        for (int i = 0; i < totalEspectadores; i++) {
             System.out.print("Informe a idade do espectador " + (i + 1) + ": ");
             int idade = scanner.nextInt();
 
-            // solicitar a opinião do espectador
             System.out.print("Informe a opinião do espectador " + (i + 1) + " (A, B, C, D ou E): ");
-            char opiniao = scanner.next().charAt(0);
+            char opiniao = scanner.next().toLowerCase().charAt(0);
             scanner.nextLine();
 
-            // atualizar
             switch (opiniao) {
-                case 'A':
+                case 'a':
                     quantidadeOtimo++;
-                    if (idade > maiorIdadeOtimo) {
-                        maiorIdadeOtimo = idade;
-                    }
+                    if (idade > maiorIdadeOtimo) maiorIdadeOtimo = idade;
                     break;
-                case 'B':
+                case 'b':
                     quantidadeBom++;
                     break;
-                case 'C':
+                case 'c':
                     quantidadeRegular++;
                     break;
-                case 'D':
+                case 'd':
                     quantidadeRuim++;
-                    somaIdadeRuim += idade;
-                    if (idade > maiorIdadeRuim) {
-                        maiorIdadeRuim = idade;
-                    }
+                    if (idade > maiorIdadeRuim) maiorIdadeRuim = idade;
                     break;
-                case 'E':
+                case 'e':
                     quantidadePessimo++;
-                    if (idade > maiorIdadePessimo) {
-                        maiorIdadePessimo = idade;
-                    }
+                    if (idade > maiorIdadePessimo) maiorIdadePessimo = idade;
                     break;
                 default:
                     System.out.println("Opinião inválida. Por favor, responda com A, B, C, D ou E.");
@@ -569,18 +566,86 @@ public class Main {
                     break;
             }
         }
-        System.out.println("\n\n---- Resultado do Questionário ----");
+
+        System.out.println("\n---- Resultado do Questionário ----");
         System.out.println("Quantidade de respostas Ótima: " + quantidadeOtimo);
 
-        // Calcular
-        float diferencaPercentualBomRegular = ((float) (quantidadeBom - quantidadeRegular) / quantidadeBom) * 100;
-        System.out.println("Diferença percentual entre respostas Bom e Regular: " + String.format("%.2f", diferencaPercentualBomRegular) + "%");
+        if (quantidadeBom != 0) {
+            float diferencaPercentualBomRegular = ((float) (quantidadeBom - quantidadeRegular) / quantidadeBom) * 100;
+            System.out.println("Diferença percentual entre respostas Bom e Regular: " + String.format("%.2f", diferencaPercentualBomRegular) + "%");
+        }
 
-        float porcentagemPessimo = ((float) quantidadePessimo / 3) * 100;
-        System.out.println("Porcentagem de respostas Péssimo: " + String.format("%.2f", porcentagemPessimo));
+        float porcentagemPessimo = ((float) quantidadePessimo / totalEspectadores) * 100;
+        System.out.println("Porcentagem de respostas Péssimo: " + String.format("%.2f", porcentagemPessimo) + "%");
 
-        int diferencaMaiorIdade = maiorIdadeOtimo - maiorIdadeRuim;
+        int diferencaMaiorIdade = Math.abs(maiorIdadeOtimo - maiorIdadeRuim);
         System.out.println("Diferença entre a maior idade que respondeu Ótimo e a maior idade que respondeu Ruim: " + diferencaMaiorIdade);
+    }
+
+    // Exercício 24
+    public static void salarioEmpresa() {
+        final double SALARIO_MINIMO = 622.00;
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Informe os dados do funcionário " + i + ":");
+
+            System.out.print("Código do funcionário: ");
+            int codigo = scanner.nextInt();
+
+            System.out.print("Número de horas trabalhadas no mês: ");
+            int horasTrabalhadas = scanner.nextInt();
+
+            scanner.nextLine();
+
+            char turno;
+            do {
+                System.out.print("Turno de trabalho (M - Matutino, V - Vespertino, N - Noturno): ");
+                turno = scanner.nextLine().toUpperCase().charAt(0);
+                if (turno != 'M' && turno != 'V' && turno != 'N') {
+                    System.out.println("Turno inválido. Por favor, digite M, V ou N.");
+                }
+            } while (turno != 'M' && turno != 'V' && turno != 'N');
+
+            char categoria;
+            do {
+                System.out.print("Categoria (O - Operário, G - Gerente): ");
+                categoria = scanner.nextLine().toUpperCase().charAt(0);
+                if (categoria != 'O' && categoria != 'G') {
+                    System.out.println("Categoria inválida. Por favor, digite O ou G.");
+                }
+            } while (categoria != 'O' && categoria != 'G');
+
+            // hora trabalhada
+            double valorHora;
+            if (categoria == 'G') {
+                valorHora = (turno == 'N') ? 0.20 * SALARIO_MINIMO : 0.15 * SALARIO_MINIMO;
+            } else {  // Operário
+                valorHora = (turno == 'N') ? 0.13 * SALARIO_MINIMO : 0.10 * SALARIO_MINIMO;
+            }
+            double salarioInicial = horasTrabalhadas * valorHora;
+
+            // auxílio-alimentação
+            double auxilioAlimentacao;
+            if (salarioInicial <= 400) {
+                auxilioAlimentacao = 0.20 * SALARIO_MINIMO;
+            } else if (salarioInicial <= 622) {
+                auxilioAlimentacao = 0.15 * SALARIO_MINIMO;
+            } else {
+                auxilioAlimentacao = 0.05 * salarioInicial;
+            }
+            double salarioLiquido = salarioInicial + auxilioAlimentacao;
+
+            System.out.println("\nDados do Funcionário " + i + ":");
+            System.out.println("Código: " + codigo);
+            System.out.println("Horas Trabalhadas: " + horasTrabalhadas);
+            System.out.println("Valor da Hora Trabalhada: R$" + String.format("%.2f", valorHora));
+            System.out.println("Salário Inicial: R$" + String.format("%.2f", salarioInicial));
+            System.out.println("Auxílio Alimentação: R$" + String.format("%.2f", auxilioAlimentacao));
+            System.out.println("Salário Líquido: R$" + String.format("%.2f", salarioLiquido));
+        }
+
+        scanner.close();
     }
 
     // Exercício 25 - Fórmula: V = 4/3 π r³
@@ -597,7 +662,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite a temperatura em Fahrenheit (F): ");
         double fahrenheit = sc.nextDouble();
-        double celsius = (fahrenheit - 32) * (5/9);
+        double celsius = (fahrenheit - 32) * (5.0 / 9.0);
         System.out.println("Temperatura em °C: " + celsius);
     }
 
@@ -644,6 +709,62 @@ public class Main {
         // Calcular
         double media = (double) soma / count;
         System.out.println("Média aritmética dos números pares entre 13 e 73: " + media);
+    }
+
+    // Exercício 31
+    public static void preenchimentoVagas() {
+        Scanner scanner = new Scanner(System.in);
+
+        int idade, totalHomens = 0, totalMulheres = 0;
+        int homensExperiencia = 0, homensMais45 = 0, mulheresMenos21Experiencia = 0;
+        int menorIdadeMulheresExperiencia = Integer.MAX_VALUE;
+        double somaIdadeHomensExperiencia = 0;
+        int contagemHomensExperiencia = 0;
+
+        while (true) {
+            System.out.print("Digite a idade do candidato (0 para encerrar): ");
+            idade = scanner.nextInt();
+            if (idade == 0) break;
+            scanner.nextLine();
+            System.out.print("Sexo do candidato (M ou F): ");
+            char sexo = scanner.nextLine().toUpperCase().charAt(0);
+            System.out.print("Possui experiência no serviço? (S ou N): ");
+            char experiencia = scanner.nextLine().toUpperCase().charAt(0);
+
+            if (sexo == 'M') {
+                totalHomens++;
+                if (idade > 45) {
+                    homensMais45++;
+                }
+                if (experiencia == 'S') {
+                    homensExperiencia++;
+                    somaIdadeHomensExperiencia += idade;
+                    contagemHomensExperiencia++;
+                }
+            } else if (sexo == 'F') {
+                totalMulheres++;
+                if (experiencia == 'S') {
+                    if (idade < 21) {
+                        mulheresMenos21Experiencia++;
+                    }
+                    if (idade < menorIdadeMulheresExperiencia) {
+                        menorIdadeMulheresExperiencia = idade;
+                    }
+                }
+            }
+        }
+        System.out.println("------ Resultados ------ ");
+        System.out.println("Número de candidatos do sexo feminino: " + totalMulheres);
+        System.out.println("Número de candidatos do sexo masculino: " + totalHomens);
+
+        double idadeMediaHomensExperiencia = (contagemHomensExperiencia > 0) ? somaIdadeHomensExperiencia / contagemHomensExperiencia : 0;
+        System.out.println("Idade média dos homens com experiência no serviço: " + idadeMediaHomensExperiencia);
+        double percentagemHomensMais45 = (totalHomens > 0) ? 100.0 * homensMais45 / totalHomens : 0;
+        System.out.println("Percentagem dos homens com mais de 45 anos entre o total dos homens: " + percentagemHomensMais45 + "%");
+        System.out.println("Número de mulheres com idade inferior a 21 anos e com experiência no serviço: " + mulheresMenos21Experiencia);
+        System.out.println("Menor idade entre as mulheres que já têm experiência no serviço: " + (menorIdadeMulheresExperiencia == Integer.MAX_VALUE ? "N/A" : menorIdadeMulheresExperiencia));
+
+        scanner.close();
     }
 
 }
