@@ -8,7 +8,6 @@
 
 
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -231,7 +230,7 @@ public class Main {
         for (i = 0; i < 5; i++) {
             elementos[i] = scanner.nextInt();
         }
-        Arrays.sort(elementos);
+        selectionSort(elementos);
         System.out.println("Elementos ordenados: ");
         for (int elemento : elementos) {
             System.out.print(elemento + " ");
@@ -290,12 +289,27 @@ public class Main {
         for (i = 0; i < 10; i++) {
             elementos[i] = scanner.nextInt();
         }
-        Arrays.sort(elementos);
+        selectionSort(elementos);
         System.out.println("Elementos ordenados: ");
         for (int elemento : elementos) {
             System.out.print(elemento + " ");
         }
         System.out.println();
+    }
+    // Selection Sort
+    public static void selectionSort(int[] v) {
+        for (int i = 0; i < v.length; i++) {
+
+            int i_menor = i; // Inicializa o índice do menor elemento como o primeiro do subarray não ordenado
+            for (int j = i + 1; j < v.length; j++) {
+                if (v[j] < v[i_menor]) {
+                    i_menor = j; // encontra o índice do menor elemento
+                }
+            }
+            int aux = v[i]; // Troca o menor elemento encontrado pelo primeiro elemento do subarray não ordenado
+            v[i] = v[i_menor];
+            v[i_menor] = aux;
+        }
     }
 
     // Exercício 12
