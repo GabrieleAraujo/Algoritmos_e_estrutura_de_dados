@@ -273,20 +273,25 @@ public class Main {
         System.out.println("Digite 10 elementos para o vetor:");
         for (int i = 0; i < 10; i++) {
             numeros[i] = scanner.nextInt();
+        }
+        for (int i = 0; i < 10; i++) {
             if (isPrime(numeros[i])) {
-                System.out.println("Número primo: " + numeros[i] + " na posição " + i);
+                System.out.println("Número primo: " + numeros[i]);
             }
         }
     }
+    // Método para verificar o num primo: pode ter apenas um de dois valores possíveis: true or false
     private static boolean isPrime(int num) {
         if (num <= 1) {
             return false;
         }
-        for (int i = 2; i <= num / 2; i++) {
+        // iterar todos os números de 2 a n – 1 e para cada número verificar se ele divide n.
+        for (int i = 2; i < num ; i++) {
             if (num % i == 0) {
                 return false;
             }
         }
         return true;
     }
+
 }
