@@ -9,7 +9,7 @@ public class Main {
                 "\n2 - Ler 5 elementos de Matrizes\n3 - Ler 5 elementos: Matriz B fatorial de A" +
                 "\n4 - Subtrair vetores\n5 - Quadrado de Elementos\n6 - Contar Negativos" +
                 "\n7 - Substituir Cinco por Um\n8 - Ordenar Elementos\n9 - Produto Escalar" +
-                "\n10 - Mostrar Números Maiores que Vinte\n11 - Mostrar Números Primos");
+                "\n10 - Mostrar Números Maiores que Vinte\n11 - Ordem crescente de um vetor com 10 elementos\n12 - Mostrar Números Primos");
         int op;
         do {
             System.out.print("Digite uma opção (0 para sair): ");
@@ -49,6 +49,9 @@ public class Main {
                     mostrarNumerosMaioresQueVinte();
                     break;
                 case 11:
+                    mostrarVetorResultanteCrescente();
+                    break;
+                case 12:
                     mostrarNumerosPrimos();
                     break;
                 default:
@@ -256,8 +259,10 @@ public class Main {
         System.out.println("Digite 10 elementos do tipo inteiro:");
         for (int i = 0; i < 10; i++) {
             numeros[i] = scanner.nextInt();
+            int j;
             if (numeros[i] > 20) {
-                System.out.println("Número superior a vinte: " + numeros[i] + " na posição " + i);
+                j = i + 1;
+                System.out.println("Número superior a vinte: " + numeros[i] + " na posição " + j);
                 temSuperior = true;
             }
         }
@@ -267,6 +272,24 @@ public class Main {
     }
 
     // Exercício 11
+    public static void mostrarVetorResultanteCrescente() {
+        Scanner scanner = new Scanner(System.in);
+        int[] elementos = new int[10];
+        int i;
+
+        System.out.println("Digite 10 elementos para o vetor:");
+        for (i = 0; i < 10; i++) {
+            elementos[i] = scanner.nextInt();
+        }
+        Arrays.sort(elementos);
+        System.out.println("Elementos ordenados: ");
+        for (int elemento : elementos) {
+            System.out.print(elemento + " ");
+        }
+        System.out.println();
+    }
+
+    // Exercício 12
     public static void mostrarNumerosPrimos() {
         Scanner scanner = new Scanner(System.in);
         int[] numeros = new int[10];
