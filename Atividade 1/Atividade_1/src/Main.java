@@ -1,3 +1,11 @@
+/**
+ * Exercício de Estrutura Sequencial, Decisão e Repetição
+ * Criado por Gabriele Araújo (GitHub:GabrieleAraujo)
+ * Data: [11/04/2024]
+ * Disciplina: ALGORITMOS E ESTRUTURAS DE DADOS
+ * Este programa contém 30 exercícios sobre Estrutura Sequencial, Decisão e Repetição em JAVA.
+ */
+
 import java.util.Calendar;
 import java.util.Scanner;
 

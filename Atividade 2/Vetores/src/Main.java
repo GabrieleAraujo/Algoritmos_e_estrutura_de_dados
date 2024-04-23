@@ -1,3 +1,12 @@
+/**
+ * Introdução a Vetores em Java
+ * Criado por Gabriele Araújo (GitHub:GabrieleAraujo)
+ * Data: [18/04/2024]
+ * Disciplina: ALGORITMOS E ESTRUTURAS DE DADOS
+ * Este programa contém 12 exercícios sobre vetores em JAVA.
+ */
+
+
 import java.util.Scanner;
 import java.util.Arrays;
 
