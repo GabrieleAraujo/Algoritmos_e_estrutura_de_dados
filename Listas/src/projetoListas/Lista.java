@@ -1,4 +1,4 @@
-package Listas;
+package projetoListas;
 
 public class Lista {
     private Object elemento;
