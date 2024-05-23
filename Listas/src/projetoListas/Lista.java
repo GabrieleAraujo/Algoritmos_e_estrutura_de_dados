@@ -1,7 +1,7 @@
 package projetoListas;
 
 public class Lista {
-    private Object elemento;
+    private final Object elemento;
     private Lista proximo;
 
     public Lista(Object elemento, Lista proximo) {
