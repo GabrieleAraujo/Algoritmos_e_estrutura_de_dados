@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaEncadeada {
+public class ListaDuplamenteEncadeada {
     Nodo cabeca;
 
     // Método para adicionar um novo nodo ao final da lista
