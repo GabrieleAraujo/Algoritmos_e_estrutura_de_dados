@@ -1,3 +1,10 @@
+/**
+ * Exercício de Lista Encadeada
+ * Criado por Gabriele Araújo (GitHub:GabrieleAraujo)
+ * Data: [11/06/2024]
+ * Disciplina: ALGORITMOS E ESTRUTURAS DE DADOS
+ */
+
 public class ListaEncadeada {
     private Nodo cabeca;  // Campo para apontar para o primeiro nodo da lista
 

@@ -1,3 +1,11 @@
+/**
+ * Exercício de Lista Encadeada
+ * Criado por Gabriele Araújo (GitHub:GabrieleAraujo)
+ * Data: [11/06/2024]
+ * Disciplina: ALGORITMOS E ESTRUTURAS DE DADOS
+ */
+
+
 public class Nodo {
     private int dado;  // Campo para armazenar o valor do nodo
     private Nodo proximo;  // Campo para referenciar o próximo nodo na lista
