@@ -1,3 +1,4 @@
+package projetobinario;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -9,6 +10,7 @@ public class DecimalParaBinario {
         String binario = converterParaBinario(decimal);
         System.out.println("O número binário é: " + binario);
     }
+
 
     public static String converterParaBinario(int decimal) {
         Stack<Integer> pilha = new Stack<>();
